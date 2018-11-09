@@ -1,0 +1,6 @@
+dropbox
+Flask
+gunicorn
+Markdown
+redis
+python-dotenv

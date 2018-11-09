@@ -1,0 +1,7 @@
+FLASK_SECRET_KEY=12345678
+FLASK_APP=app.py
+FLASK_ENV=development
+APP_KEY=<your config here>
+APP_SECRET=<your config here>
+ACC_TOKEN=<your config here>
+REDISTOGO_URL=<your config here>
