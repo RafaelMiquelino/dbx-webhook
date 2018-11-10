@@ -22,12 +22,9 @@ app = Flask(__name__)
 # A random secret used by Flask to encrypt session data cookies
 app.secret_key = os.environ['FLASK_SECRET_KEY']
 
-@app.before_first_request
-def hello():
-    access_token = os.environ['ACC_TOKEN']
-    account = Dropbox(access_token).users_get_current_account().account_id
-    redis_client.hset('tokens', account, access_token)
-    process_user(account)
+access_token = os.environ['ACC_TOKEN']
+account = Dropbox(access_token).users_get_current_account().account_id
+redis_client.hset('tokens', account, access_token)
 
 def process_user(account):
 
@@ -65,6 +62,8 @@ def process_user(account):
 
         # Repeat only if there's more to do
         has_more = result.has_more
+
+process_user(account)
 
 @app.route('/webhook', methods=['GET'])
 def challenge():

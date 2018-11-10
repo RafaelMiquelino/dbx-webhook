@@ -3,6 +3,7 @@ services:
     dbx-webhook:
         container_name: dbx-webhook
         build: .
+        image: dbx-webhook 
         restart: always
         ports:
             - "5050:5050"
